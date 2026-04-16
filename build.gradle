@@ -10,6 +10,17 @@ group = mod_group_id
 
 repositories {
     mavenLocal()
+    exclusiveContent {
+        forRepository {
+            maven {
+                name = "Modrinth"
+                url = "https://api.modrinth.com/maven"
+            }
+        }
+        filter {
+            includeGroup "maven.modrinth"
+        }
+    }
 }
 
 base {
@@ -109,6 +120,9 @@ dependencies {
 
     // Example mod dependency using a file as dependency
     // implementation files("libs/coolmod-${mc_version}-${coolmod_version}.jar")
+    // implementation "earth.terrarium:pastel-neoforge-1.21.1:${pastel_version}"
+//    implementation files("libs/Pastel-1.1.5.5.jar")
+    implementation "maven.modrinth:pastel-mod:1.1.4"
 
     // Example project dependency using a sister or child project:
     // implementation project(":myproject")
